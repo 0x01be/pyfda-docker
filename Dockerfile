@@ -18,6 +18,12 @@ RUN apk --no-cache add --virtual pyfda-build-dependencies \
     zlib-dev \
     harfbuzz-dev
 
+RUN apk --no-cache add --virtual pyfda-edge-build-dependencies \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    qhull
+
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 RUN pip install --upgrade pip
 
