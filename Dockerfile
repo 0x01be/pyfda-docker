@@ -25,5 +25,5 @@ RUN git clone --depth 1 --branch ${PYFDA_REVISION} https://github.com/chipmuenk/
 
 WORKDIR /pyfda
 
-RUN pip3 install --prefix=/opt/pyfda -e .
+RUN python3 setup.py install --prefix=/opt/pyfda
 
