@@ -8,8 +8,9 @@ USER root
 RUN apk --no-cache add --virtual inspectrum-runtime-dependencies \
     qt5-qtbase \
     qt5-qtbase-x11 \
-    python3 \
-    py3-numpy
+    python3
+
+COPY --from=build /usr/lib/python3.8/site-packages/ /usr/lib/python3.8/site-packages/
 
 USER xpra
 
