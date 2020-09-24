@@ -7,6 +7,7 @@ COPY --from=build /usr/lib/python3.8/site-packages/ /usr/lib/python3.8/site-pack
 
 USER root
 RUN apk --no-cache add --virtual pyfda-runtime-dependencies \
+    mesa-dri-swrast \
     qt5-qtbase \
     qt5-qtbase-x11 \
     python3 \
