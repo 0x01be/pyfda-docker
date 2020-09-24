@@ -14,6 +14,7 @@ RUN apk --no-cache add --virtual pyfda-runtime-dependencies \
     py3-qt5 \
     py3-pillow \
     py3-parsing \
+    py3-six \
     libpng \
     bzip2 \
     zlib \
