@@ -9,6 +9,7 @@ RUN apk --no-cache add --virtual pyfda-runtime-dependencies \
     qt5-qtbase \
     qt5-qtbase-x11 \
     python3 \
+    py3-setuptools \
     py3-numpy \
     py3-scipy \
     py3-qt5 \
