@@ -13,7 +13,6 @@ RUN apk --no-cache add --virtual inspectrum-runtime-dependencies \
 ENV PATH $PATH:/opt/pyfda/bin/
 ENV PYTHONPATH /usr/lib/python3.8/site-packages/:/opt/pyfda/lib/python3.8/site-packages/
 
-VOLUME /workspace
 WORKDIR /workspace
 
 ENV COMMAND "pyfdax"
