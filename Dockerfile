@@ -1,6 +1,7 @@
 FROM alpine as build
 
 RUN apk --no-cache add --virtual pyfda-build-dependencies \
+    git \
     build-base \
     qt5-qtbase-dev \
     python3-dev \
@@ -18,7 +19,11 @@ RUN apk --no-cache add --virtual pyfda-build-dependencies \
     harfbuzz-dev
 
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
-RUN pip install --upgrade pip
 
-RUN pip install pyfda --prefix=/opt/pyfda
+ENV PYFDA_REVISION develop
+RUN git clone --depth 1 --branch ${PYFDA_REVISION} https://github.com/chipmuenk/pyfda.git /pyfda
+
+WORKDIR /pyfda
+
+RUN pip3 install --prefix=/opt/pyfda -e .
 
