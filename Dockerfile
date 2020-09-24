@@ -5,13 +5,20 @@ FROM 0x01be/xpra
 COPY --from=build /opt/pyfda/ /opt/pyfda/
 
 USER root
-RUN apk --no-cache add --virtual inspectrum-runtime-dependencies \
+RUN apk --no-cache add --virtual pyfda-runtime-dependencies \
     qt5-qtbase \
     qt5-qtbase-x11 \
     python3 \
+    py3-numpy \
+    py3-scipy \
+    py3-qt5 \
+    py3-pillow \
+    py3-parsing \
+    libpng \
+    bzip2 \
+    zlib \
+    harfbuzz \
     openblas
-
-COPY --from=build /usr/lib/python3.8/site-packages/ /usr/lib/python3.8/site-packages/
 
 USER xpra
 
