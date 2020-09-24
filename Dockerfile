@@ -26,11 +26,11 @@ RUN apk add --no-cache --virtual build-dependencies \
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 RUN ln -s /usr/include/freetype2/ft2build.h /usr/include/ft2build.h
 
-ENV PYTHONPATH /usr/lib/python3.8/site-packages/:/opt/matplotlib/lib/python3.8/site-packages/
+ENV PYTHONPATH /usr/lib/python3.8/site-packages/
 
 RUN git clone --depth 1 https://github.com/matplotlib/matplotlib.git /matplotlib
 WORKDIR /matplotlib
-RUN python3 setup.py install --prefix=/opt/matplotlib/
+RUN python3 setup.py install
 
 ENV PYFDA_REVISION develop
 RUN git clone --depth 1 --branch ${PYFDA_REVISION} https://github.com/chipmuenk/pyfda.git /pyfda
